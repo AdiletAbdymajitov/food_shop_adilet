@@ -67,19 +67,6 @@ class Dish(models.Model):
         verbose_name_plural = "Блюда"
 
 
-class Kit(models.Model):
-    total_before = models.PositiveIntegerField(null=True)
-    total_after = models.PositiveIntegerField(null=True)
-    percent = models.PositiveIntegerField(null=True, validators=[MaxValueValidator(99)])
-    items = models.ManyToManyField(Dish)
-
-    def __str__(self):
-        return str(self.id)
-
-    # def save(self, *args, **kwargs):
-    #
-    #     super(Kit, self).save(*args, **kwargs)
-
 class Cart(models.Model):
     session_key = models.CharField(max_length=999, blank=True, default='')
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)

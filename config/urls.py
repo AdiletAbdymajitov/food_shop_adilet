@@ -16,7 +16,7 @@ urlpatterns = [
                   path('', include('social_django.urls', namespace='social')),
                   path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
                   path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
-                  path('favicon.ico', RedirectView.as_view(url='/static/img/favicon.ico')),
+                  path('favicon.ico', RedirectView.as_view(url='/static/images/favicon.ico')),
                   # media connecting
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + \
     staticfiles_urlpatterns()

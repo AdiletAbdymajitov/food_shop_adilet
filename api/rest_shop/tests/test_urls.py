@@ -8,7 +8,7 @@ from shop.models import Company
 class URLTests(APITestCase):
     def setUp(self):
         self.user = User.objects.create_superuser(username='mango', password="1!2@3#4$")
-        Company.objects.create(title="some company")
+        self.company=Company.objects.create(title="some company")
 
     def test_companies_view_success(self):
         self.client.force_authenticate(user=self.user)
@@ -19,7 +19,7 @@ class URLTests(APITestCase):
         self.client.login(username='mango', password="1!2@3#4$")
         response = self.client.post('/api/companies/', data={'title': "new_comp"}, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(response.data, {"id": 2, "title": "new_comp"})
+        self.assertEqual(response.data['title'],"new_comp")
 
     def test_companies_create_not_valid_data_fail(self):
         response = self.client.post('/api/companies/', data={'name': "not valid field value"}, format='json')

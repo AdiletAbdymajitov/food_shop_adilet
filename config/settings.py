@@ -111,9 +111,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         # необходимо использовать ваши данные !!!
-        'NAME': 'food_shop',
+        'NAME': 'food_shop_2',
         'USER': 'postgres',
-        'PASSWORD': '4481',
+        'PASSWORD': 'Hajime02Top',
         'HOST': 'localhost',
         'PORT': '',
     }
